@@ -2,14 +2,10 @@ const router = require('express').Router();
 const cubeController = require('./controllers/cubeController.js');
 
 
-router.get('/', (req, res) => {
-    res.render('index');
-});
+router.get('/', cubeController.getFrontPage);
 
-router.get('/create', cubeController.getCreateCube)
+router.get('/create', cubeController.getCreateCube);
 
-router.get('/about', (req, res) => {
-    res.render('about');
-});
+router.get('/about', cubeController.getAboutPage);
 
 module.exports = router;
