@@ -1,0 +1,20 @@
+{
+  "cubes": [
+    {
+      "name": {
+        "name": "cube1",
+        "description": "asd",
+        "imageUrl": "image",
+        "difficultyLevel": "1"
+      }
+    },
+    {
+      "name": {
+        "name": "cube2",
+        "description": "assddd",
+        "imageUrl": "image",
+        "difficultyLevel": "5"
+      }
+    }
+  ]
+}

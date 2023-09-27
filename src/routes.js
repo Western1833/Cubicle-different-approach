@@ -8,4 +8,6 @@ router.get('/create', cubeController.getCreateCube);
 
 router.get('/about', cubeController.getAboutPage);
 
+router.post('/create', cubeController.postCreateCube);
+
 module.exports = router;
