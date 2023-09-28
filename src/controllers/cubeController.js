@@ -1,7 +1,8 @@
 const Cube = require('../models/Cube.js');
+const db = require('../db.json');
 
 const getFrontPage = (req, res) => {
-    res.render('index');
+    res.render('index', {cubes: db.cubes});
 }
 
 const getCreateCube = (req, res) => {
@@ -13,7 +14,8 @@ const getAboutPage = (req, res) => {
 }
 
 const postCreateCube = (req, res) => {
-    let cube = new Cube(req.body);
+    const {name, imageUrl, description, difficultyLevel} = req.body;
+    let cube = new Cube(name, imageUrl, description, difficultyLevel);
     Cube.save(cube);
     res.redirect('/');
 }
