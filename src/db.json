@@ -25,8 +25,15 @@
       "name": "cube2",
       "imageUrl": "https://media.ipassio.com/media/blog/benefits-of-solving-rubiks-cube/blog_icon/benefits-of-solving-rubiks-cube.jpg",
       "description": "cube2",
-      "difficultyLevel": "1",
+      "difficultyLevel": "3",
       "id": 4
+    },
+    {
+      "name": "cube1",
+      "imageUrl": "image",
+      "description": "asd",
+      "difficultyLevel": "5",
+      "id": 5
     }
   ]
 }
