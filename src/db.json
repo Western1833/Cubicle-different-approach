@@ -1,22 +1,32 @@
 {
   "cubes": [
     {
+      "id": 1,
       "name": "Gan356 Air SM",
       "description": "Magnets in AirSM will not drop, and their positions will be more precise with the\r\n          Magnets-Snap-On design. With the use of 3mm*2mm magnets, the handfeel will be more stable and more\r\n          comfortable. P.S. This design is brand new for the AirSM.",
       "imageUrl": "https://ae01.alicdn.com/kf/HTB1CSddXRxRMKJjy0Fdq6yifFXa6/Gan-356-Air-SM-3x3-Black-Magic-cube-GAN-Air-SM-Magnetic-3x3x3-Speed-cube-gans.jpg",
       "difficultyLevel": "3"
     },
     {
+      "id": 2,
       "name": "Eco-Dark",
       "description": "Black cube.",
       "imageUrl": "https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg",
       "difficultyLevel": "6"
     },
     {
+      "id": 3,
       "name": "TurboSquid",
       "imageUrl": "https://p.turbosquid.com/ts-thumb/Do/0uTCkm/5L/render_animatedrubiks10x10_192125_ff_/png/1686233630/300x300/sharp_fit_q85/f99c92c31f7fb3cbd3874283d27cd1ea2282ce4e/render_animatedrubiks10x10_192125_ff_.jpg",
       "description": "Insane",
       "difficultyLevel": "6"
+    },
+    {
+      "name": "cube2",
+      "imageUrl": "https://media.ipassio.com/media/blog/benefits-of-solving-rubiks-cube/blog_icon/benefits-of-solving-rubiks-cube.jpg",
+      "description": "cube2",
+      "difficultyLevel": "1",
+      "id": 4
     }
   ]
 }

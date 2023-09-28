@@ -20,9 +20,25 @@ const postCreateCube = (req, res) => {
     res.redirect('/');
 }
 
+const getCubeDetails = (req, res) => {
+    let cubeId = Number(req.params.id);
+
+    if(!cubeId){
+        res.redirect('404');
+    }
+
+    let cube = db.cubes.find(cube => cube.id === cubeId);
+
+    if(!cube){
+        res.redirect('404');
+    }
+
+    res.render('details', {cube});
+}
 module.exports = {
     getCreateCube,
     getFrontPage,
     getAboutPage,
-    postCreateCube
+    postCreateCube,
+    getCubeDetails
 }

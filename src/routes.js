@@ -10,4 +10,6 @@ router.get('/about', cubeController.getAboutPage);
 
 router.post('/create', cubeController.postCreateCube);
 
+router.get('/details/:id', cubeController.getCubeDetails);
+
 module.exports = router;
