@@ -34,25 +34,25 @@ const postCreateCube = async (req, res) => {
     res.redirect('/');
 }
 
-const getCubeDetails = (req, res) => {
-    let cubeId = Number(req.params.id);
+const getCubeDetails = async (req, res) => {
+    try{
+        const cube = await Cube.findById(req.params.id).lean();
 
-    if(!cubeId){
+        if(!cube){
+            res.redirect('/404');
+        }else{
+            res.render('details', {cube});
+        }
+    }catch(err){
+        console.log(err);
         res.redirect('/404');
     }
-
-    let cube = db.cubes.find(cube => cube.id === cubeId);
-
-    if(!cube){
-        res.redirect('/404');
-    }
-
-    res.render('details', {cube});
 }
 
 const errorHandlingPage = (req, res) => {
     res.render('404');
 } 
+
 module.exports = {
     getCreateCube,
     getFrontPage,
