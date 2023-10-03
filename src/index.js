@@ -15,4 +15,4 @@ app.use(routes);
 
 initDb()
 .then(() => app.listen(config.PORT, () => console.log(`Server is listening on PORT: ${config.PORT}...`)))
-.catch((err) => console.log(err))
+.catch((err) => console.log(err.message))
