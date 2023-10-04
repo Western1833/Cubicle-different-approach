@@ -15,6 +15,8 @@ router.get('/details/:id', cubeController.getCubeDetails);
 
 router.get('/404', cubeController.errorHandlingPage);
 
+router.get('/cubes/:id/attach', cubeController.getAttachAccessories);
+
 router.use('/accessory', accessoryControler);
 
 module.exports = router;

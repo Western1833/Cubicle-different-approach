@@ -1,4 +1,5 @@
 const Cube = require('../models/CubeModel.js');
+const Accessories = require('../models/Accessory.js');
 
 const getFrontPage = async (req, res) => {
     const {search, from, to} = req.query;
@@ -53,11 +54,20 @@ const errorHandlingPage = (req, res) => {
     res.render('404');
 } 
 
+const getAttachAccessories = async (req, res) => {
+    const id = req.params.id;
+    const cube = await Cube.findById(id).lean();
+    const accessories = await Accessories.find().lean();
+
+    res.render('attach', {cube, accessories});
+}
+
 module.exports = {
     getCreateCube,
     getFrontPage,
     getAboutPage,
     postCreateCube,
     getCubeDetails,
-    errorHandlingPage
+    errorHandlingPage,
+    getAttachAccessories
 }
