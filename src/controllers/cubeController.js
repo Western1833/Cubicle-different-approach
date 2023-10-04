@@ -44,7 +44,7 @@ const getCubeDetails = async (req, res) => {
             res.render('details', {cube});
         }
     }catch(err){
-        console.log(err);
+        console.log(err.message);
         res.redirect('/404');
     }
 }
