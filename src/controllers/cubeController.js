@@ -37,7 +37,7 @@ const postCreateCube = async (req, res) => {
 
 const getCubeDetails = async (req, res) => {
     try{
-        const cube = await Cube.findById(req.params.id).lean();
+        const cube = await Cube.findById(req.params.id).populate('accessories').lean();
 
         if(!cube){
             res.redirect('/404');
