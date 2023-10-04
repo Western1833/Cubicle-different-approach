@@ -1,4 +1,5 @@
-const {Schema, model} = require('mongoose');
+const {Schema, model, Types} = require('mongoose');
+const Accessory = require('./Accessory.js');
 
 const cubeSchema = Schema({
     name: {
@@ -20,7 +21,11 @@ const cubeSchema = Schema({
         required: true,
         max: 6,
         min: 1
-    }
+    },
+    accessories: [{
+        type: Types.ObjectId,
+        ref: "Accessory"
+    }]
 });
 
 const Cube = model('Cube', cubeSchema);
