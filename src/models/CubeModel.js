@@ -14,7 +14,7 @@ const cubeSchema = Schema({
     imageUrl: {
         type: String,
         required: true,
-
+        match: [/^https?:\/\//, 'Invalid URL']
     },
     difficultyLevel: {
         type: Number,
