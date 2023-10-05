@@ -57,7 +57,7 @@ const errorHandlingPage = (req, res) => {
 const getAttachAccessories = async (req, res) => {
     const id = req.params.id;
     const cube = await Cube.findById(id).lean();
-    const accessories = await Accessories.find().lean();
+    const accessories = await Accessories.find({_id: {$nin: cube.accessories}}).lean();
 
     res.render('attach', {cube, accessories});
 };
