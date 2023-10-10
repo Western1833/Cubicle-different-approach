@@ -21,6 +21,8 @@ const getFrontPage = async (req, res) => {
 };
 
 const getCreateCube = (req, res) => {
+    console.log('req.user');
+    console.log(req.user);
     res.render('create');
 };
 
