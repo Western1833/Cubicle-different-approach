@@ -14,6 +14,8 @@ router.post('/create', isAuthenticated, cubeController.postCreateCube);
 
 router.get('/details/:id', cubeController.getCubeDetails);
 
+router.get('/details/:id/edit', cubeController.getEditCube);
+
 router.get('/404', cubeController.errorHandlingPage);
 
 router.get('/cubes/:id/attach', cubeController.getAttachAccessories);

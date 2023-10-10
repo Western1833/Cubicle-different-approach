@@ -76,6 +76,10 @@ const postAttachAccessories = async (req, res) => {
     res.redirect(`/details/${id}`);
 }
 
+const getEditCube = (req, res) => {
+    res.render('editCubePage');
+}
+
 module.exports = {
     getCreateCube,
     getFrontPage,
@@ -84,5 +88,6 @@ module.exports = {
     getCubeDetails,
     errorHandlingPage,
     getAttachAccessories,
-    postAttachAccessories
+    postAttachAccessories,
+    getEditCube
 }
