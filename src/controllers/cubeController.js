@@ -85,6 +85,14 @@ const getEditCube = async (req, res) => {
     res.render('editCubePage', {cube, difficultyLevel});
 };
 
+const postEditCube = async (req, res) => {
+    const {name, imageUrl, description, difficultyLevel} = req.body;
+
+    await cubeService.update(req.params.id, {name, imageUrl, description, difficultyLevel});
+
+    res.redirect(`/details/${req.params.id}`);
+}
+
 const getDeleteCube = async (req, res) => {
     const cube = await cubeService.getOne(req.params.id).lean();
     const difficultyLevel = utils.generateDifficultyLevels(cube.difficultyLevel);
@@ -102,5 +110,6 @@ module.exports = {
     getAttachAccessories,
     postAttachAccessories,
     getEditCube,
-    getDeleteCube
+    getDeleteCube,
+    postEditCube
 }
