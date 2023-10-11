@@ -1,5 +1,6 @@
 const Cube = require('../models/CubeModel.js');
 const Accessories = require('../models/Accessory.js');
+const cubeService = require('../services/cubeService.js');
 
 const getFrontPage = async (req, res) => {
     const {search, from, to} = req.query;
@@ -54,7 +55,7 @@ const getCubeDetails = async (req, res) => {
 
 const errorHandlingPage = (req, res) => {
     res.render('404');
-} 
+};
 
 const getAttachAccessories = async (req, res) => {
     const id = req.params.id;
@@ -74,11 +75,33 @@ const postAttachAccessories = async (req, res) => {
     cube.save();
 
     res.redirect(`/details/${id}`);
+};
+
+function generateDifficultyLevels(currentLevel) {
+    const difficultyLevels = [
+        {key:1, label: "Very easy", selected: false},
+        {key:2, label: "Easy", selected: false},
+        {key:3, label: "Medium (Standard 3x3)", selected: false},
+        {key:4, label: "Intermediate", selected: false},
+        {key:5, label: "Expert", selected: false},
+        {key:6, label: "Hardcore", selected: false},
+    ];
+
+    const result = difficultyLevels.map(x => x.key === currentLevel ? {...x, selected: true} : x);
+    return result;
 }
 
-const getEditCube = (req, res) => {
-    res.render('editCubePage');
-}
+const getEditCube = async (req, res) => {
+    const cube = await cubeService.getOne(req.params.id).lean();
+
+    res.render('editCubePage', {cube});
+};
+
+const getDeleteCube = async (req, res) => {
+    const cube = await cubeService.getOne(req.params.id).lean();
+
+    res.render('deleteCubePage', {cube});
+};
 
 module.exports = {
     getCreateCube,
@@ -89,5 +112,6 @@ module.exports = {
     errorHandlingPage,
     getAttachAccessories,
     postAttachAccessories,
-    getEditCube
+    getEditCube,
+    getDeleteCube
 }
