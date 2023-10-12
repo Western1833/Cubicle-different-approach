@@ -22,6 +22,11 @@ router.get('/register', (req, res) => {
     res.render('registerPage');
 });
 
+router.get('/logout', (req, res) => {
+    res.clearCookie('auth');
+    res.redirect('/');
+})
+
 router.post('/register', async (req, res) => {
     const {username, password, repeatPassword} = req.body;
 
