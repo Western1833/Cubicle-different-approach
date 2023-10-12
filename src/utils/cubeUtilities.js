@@ -15,3 +15,7 @@ function generateDifficultyLevels(currentLevel) {
 module.exports = {
     generateDifficultyLevels
 }
+
+exports.isOwner = (user, cube) => {
+    return cube.owner == user._id
+}

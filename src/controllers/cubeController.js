@@ -84,6 +84,10 @@ const getEditCube = async (req, res) => {
     const cube = await cubeService.getOne(req.params.id).lean();
     const difficultyLevel = utils.generateDifficultyLevels(cube.difficultyLevel);
 
+    if(!utils.isOwner(req.user, cube)){
+        return res.redirect('/404');
+    }
+
     res.render('editCubePage', {cube, difficultyLevel});
 };
 
