@@ -34,7 +34,7 @@ const getAboutPage = (req, res) => {
 
 const postCreateCube = async (req, res) => {
     const {name, imageUrl, description, difficultyLevel} = req.body;
-    let cube = new Cube({name, imageUrl, description, difficultyLevel});
+    let cube = new Cube({owner: req.user._id, name, imageUrl, description, difficultyLevel});
     await cube.save();
     res.redirect('/');
 };
@@ -43,10 +43,12 @@ const getCubeDetails = async (req, res) => {
     try{
         const cube = await Cube.findById(req.params.id).populate('accessories').lean();
 
+        const isOwner = cube.owner == req.user._id;
+
         if(!cube){
             res.redirect('/404');
         }else{
-            res.render('details', {cube});
+            res.render('details', {cube, isOwner});
         }
     }catch(err){
         console.log(err.message);

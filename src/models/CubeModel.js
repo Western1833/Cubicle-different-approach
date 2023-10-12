@@ -1,4 +1,4 @@
-const {Schema, model, Types} = require('mongoose');
+const {Schema, model, Types, default: mongoose} = require('mongoose');
 const Accessory = require('./Accessory.js');
 
 const cubeSchema = Schema({
@@ -23,9 +23,13 @@ const cubeSchema = Schema({
         min: 1
     },
     accessories: [{
-        type: Types.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "Accessory"
-    }]
+    }],
+    owner: {
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 const Cube = model('Cube', cubeSchema);
