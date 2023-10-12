@@ -100,6 +100,13 @@ const getDeleteCube = async (req, res) => {
     res.render('deleteCubePage', {cube, difficultyLevel});
 };
 
+const postDeleteCube = async (req, res) => {
+    const id = req.params.id;
+    await cubeService.delete(id);
+
+    res.redirect('/');
+}
+
 module.exports = {
     getCreateCube,
     getFrontPage,
@@ -111,5 +118,6 @@ module.exports = {
     postAttachAccessories,
     getEditCube,
     getDeleteCube,
-    postEditCube
+    postEditCube,
+    postDeleteCube
 }
